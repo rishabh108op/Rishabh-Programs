@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>AJS Program 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+
+<body ng-app="myApp" ng-controller="shopping">
+    <u><h2>Shopping Cart</h2></u><br>
+    <ol>
+        <li ng-repeat="i in shoppingItems">{{i}}</li>
+    </ol>
+
+
+    Enter an item to Add:<input type="text" ng-model="itema">&emsp;
+    <input type="button" value="ADD" ng-click="addItem()"><br><br>
+
+    
+    Select an item to remove:
+    <select ng-model="itemr">
+        <option ng-repeat="i in shoppingItems">{{i}}</option>
+    </select>&emsp;
+
+
+    <input type="button" value="Remove" ng-click="remItem()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    var s=angular.module("myApp",[]);
+    s.controller("shopping",function ($scope){
+        $scope.shoppingItems=["Laptop","Mobile"];
+
+
+
+
+
+
+        $scope.addItem=function(){
+            if($scope.itema && $scope.shoppingItems.indexOf($scope.itema)==-1)
+            {
+                $scope.shoppingItems.push($scope.itema);
+                $scope.itema="";
+            }
+            else{
+                if($scope.itema){
+                    alert("This item already Exists!!");
+                    return false;
+                }
+                else{
+                    alert("Enter a valid input!!");
+                    return false;    
+                }
+            }
+        }
+
+
+
+        $scope.remItem=function(){
+            if($scope.shoppingItems.indexOf($scope.itemr)==-1){
+                alert("This item does not exist!!");
+                return false;
+            }
+            else{
+                let idx=$scope.shoppingItems.indexOf($scope.itemr);
+                $scope.shoppingItems.splice(idx,1);
+                $scope.itemr="";
+            }
+        }
+    });
+</script>

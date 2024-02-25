@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Calci</title>
+        <style>
+            h2{
+                text-align: center;
+            }
+            .zero{
+                text-align:right;
+                height:32px;
+                font-size:medium;
+            }
+            input{
+                height: 100%;
+                width:100%;
+            }
+            table{
+                background-color: burlywood;
+                width: 20vw;
+                height: 30vh;
+            }
+            
+        </style>
+        <script>
+            function display(x){
+             document.getElementById('text1').value+=x;
+            }
+            function compute(){
+                var x = document.getElementById('text1').value
+                document.getElementById('text1').value=eval(x)
+
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+            <form>
+                <table border="1" cellspacing="5px" cellpadding="5px">
+                    <tr>
+                        <td colspan="4" bgcolor="white"><h2>Calculator</h2></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><input type="text" class="zero" id="text1" bgcolor="white" placeholder="0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="C"></td>
+                        <td><input type="button" value="*" onclick='display(this.value)'></td>
+                        <td><input type="button" value="/" onclick='display(this.value)'></td>
+                        <td><input type="button" value="-" onclick='display(this.value)'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="7" onclick='display(this.value)'></td>
+                        <td><input type="button" value="8" onclick='display(this.value)'></td>
+                        <td><input type="button" value="9" onclick='display(this.value)'></td>
+                        <td rowspan="2"><input type="button" value="+" onclick='display(this.value)'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="4" onclick='display(this.value)'></td>
+                        <td><input type="button" value="5" onclick='display(this.value)'></td>
+                        <td><input type="button" value="6" onclick='display(this.value)'></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1" onclick='display(this.value)'></td>
+                        <td><input type="button" value="2" onclick='display(this.value)'></td>
+                        <td><input type="button" value="3" onclick='display(this.value)'></td>
+                        <td rowspan="2"><input type="button" value="=" onclick='compute()'></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" value="0" onclick='display(this.value)'></td>
+                        <td><input type="button" value="." onclick='display(this.value)'></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </body>
+</html>

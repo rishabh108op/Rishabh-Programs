@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>AJS!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="cntr">
+
+    enter first name:
+    <input type="text" ng-model="firstname"><br><br>
+    enter last name:
+    <input type="text" ng-model="lastname"><br>
+
+    {{firstname+lastname}}
+
+</body>
+</html>
+
+<script>
+    var c=angular.module("myapp",[])
+    c.controller("cntr",function($scope)
+    {
+        $scope.firstname="Rishabh"
+        $scope.lastname="Patel"
+    })
+</script>
